@@ -4,7 +4,7 @@ let modInfo = {
 	pointsName: "particles",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "",
+	discordName: "alexandru_123",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.1",
+	name: "Nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -42,6 +42,8 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('c', 11)) gain = gain.times(2)
+	if (hasUpgrade('c', 12)) gain = gain.times(upgradeEffect('c', 12))
 	return gain
 }
 
